@@ -6,8 +6,11 @@ depend {
 
 CALL_pages publish {
     "cd": "Prototypes/01-SourceLogicPackage",
+    "css": "$__DIRNAME__/Skin/style.css",
+    "scripts": [
+        "$__DIRNAME__/Skin/jquery-v3.2.1.min.js"
+    ],
     "anchors": {
-        "body": "$__DIRNAME__/README.md"
-    },    
-    "css": "$__DIRNAME__/Skin/style.css"
+        "body": "$__DIRNAME__/README.tpl.md"
+    }
 }
