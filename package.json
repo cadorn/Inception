@@ -6,6 +6,6 @@
         "bash.origin": "^0.1.59"
     },
     "scripts": {
-        "test": "BO_ROOT_SCRIPT_PATH=$(pwd)/node_modules/bash.origin/bash.origin bash.origin.test Aspects"
+        "test": "BO_ROOT_SCRIPT_PATH=$(pwd)/node_modules/bash.origin/bash.origin bash.origin.test Prototypes"
     }
 }
