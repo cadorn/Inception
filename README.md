@@ -10,4 +10,4 @@ The *Logic contained and referenced within* forms the Background and Foundation 
 Provenance
 ==========
 
-This work is licensed under a [Attribution ShareAlike License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) with copyright by [Christoph Dorn](http://christophdorn.com) since 2017.
+This Work is licensed under a [Attribution ShareAlike License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) with copyright by [Christoph Dorn](http://christophdorn.com) since 2017.
