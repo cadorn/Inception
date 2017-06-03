@@ -10,7 +10,7 @@ local VARIABLES={
     "PACKAGE_GITHUB_URI": "github.com/cadorn/Inception",
     "PACKAGE_WEBSITE_SOURCE_URI": "github.com/cadorn/Inception/tree/master/Prototypes/02-Inception/main.sh",
     "PACKAGE_CIRCLECI_NAMESPACE": "cadorn/Inception",
-    "PACKAGE_WEBSITE_URI": "cadorn.github.io/Inception/Prototypes/02-Inception/",
+    "PACKAGE_WEBSITE_URI": "cadorn.github.io/Inception/",
     "PACKAGE_YEAR_CREATED": "2017",
     "PACKAGE_LICENSE_ALIAS": "CC-BY-SA",
     "PACKAGE_SUMMARY": (markdown () >>>
@@ -24,6 +24,5 @@ local VARIABLES={
 
 
 CALL_website publish {
-    "cd": "Prototypes/02-Inception",
     "variables": $VARIABLES
 }
