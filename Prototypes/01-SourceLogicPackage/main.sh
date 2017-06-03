@@ -1,16 +1,15 @@
 #!/usr/bin/env bash.origin.script
 
 depend {
-    "pages": "@com.github/pinf-to/to.pinf.com.github.pages#s1"
+    "website": "@github.com~cadorn~Inception/Prototypes/01-SourceLogicPackage#s1"
 }
 
-CALL_pages publish {
+CALL_website publish {
     "cd": "Prototypes/01-SourceLogicPackage",
-    "css": "$__DIRNAME__/Skin/style.css",
-    "scripts": [
-        "$__DIRNAME__/Skin/jquery-v3.2.1.min.js"
-    ],
-    "anchors": {
-        "body": "$__DIRNAME__/README.tpl.md"
+    "variables": {
+        "PACKAGE_GITHUB_URI": "github.com/cadorn/Inception",
+        "PACKAGE_WEBSITE_SOURCE_URI": "github.com/cadorn/Inception/tree/master/Prototypes/01-SourceLogicPackage/main.sh",
+        "PACKAGE_CIRCLECI_NAMESPACE": "cadorn/Inception",
+        "PACKAGE_WEBSITE_URI": "cadorn.github.io/Inception/Prototypes/01-SourceLogicPackage/"
     }
 }
