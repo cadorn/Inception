@@ -1,6 +1,6 @@
 {
     "name": "cadorn.inception",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "dependencies": {
         "bash.origin": "^0.1.59",
         "bash.origin.test": "^0.1.30",
