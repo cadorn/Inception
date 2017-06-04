@@ -4,3 +4,4 @@
 .actual.*
 node_modules/
 .rt/
+npm-debug.log

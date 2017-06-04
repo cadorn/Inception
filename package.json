@@ -1,5 +1,5 @@
 {
-    "name": "@cadorn/Inception",
+    "name": "github.com~cadorn~Inception",
     "version": "0.0.1",
     "dependencies": {
         "bash.origin": "^0.1.59",
