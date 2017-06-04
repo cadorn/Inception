@@ -11,6 +11,7 @@ local VARIABLES={
     "PACKAGE_GITHUB_URI": "github.com/cadorn/Inception",
     "PACKAGE_WEBSITE_SOURCE_URI": "github.com/cadorn/Inception/tree/master/Prototypes/02-Inception/main.sh",
     "PACKAGE_CIRCLECI_NAMESPACE": "cadorn/Inception",
+    "PACKAGE_NPM_PACKAGE_NAME": "@cadorn/Inception",
     "PACKAGE_WEBSITE_URI": "cadorn.github.io/Inception/",
     "PACKAGE_YEAR_CREATED": "2017",
     "PACKAGE_LICENSE_ALIAS": "CC-BY-SA",
