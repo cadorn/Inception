@@ -24,9 +24,9 @@ local VARIABLES={
 }
 
 
-#CALL_website publish {
-#    "variables": $VARIABLES
-#}
+CALL_website publish {
+    "variables": $VARIABLES
+}
 
 
 BO_run_recent_node --eval '
