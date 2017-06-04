@@ -1,6 +1,6 @@
 {
     "name": "github.com~cadorn~Inception",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "dependencies": {
         "bash.origin": "^0.1.59",
         "bash.origin.test": "^0.1.30",
