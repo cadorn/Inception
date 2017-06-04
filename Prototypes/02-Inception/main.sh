@@ -1,7 +1,8 @@
 #!/usr/bin/env bash.origin.script
 
 depend {
-    "website": "@github.com~cadorn~Inception/Prototypes/01-SourceLogicPackage#s1"
+    "website": "@github.com~cadorn~Inception/Prototypes/01-SourceLogicPackage#s1",
+    "pages": "@com.github/pinf-to/to.pinf.com.github.pages#s1"    
 }
 
 
@@ -23,6 +24,22 @@ local VARIABLES={
 }
 
 
-CALL_website publish {
-    "variables": $VARIABLES
-}
+#CALL_website publish {
+#    "variables": $VARIABLES
+#}
+
+
+BO_run_recent_node --eval '
+    const PATH = require("path");
+    const FS = require("fs");
+
+    const PAGES = require("'$(CALL_pages getJSRequirePath)'");
+    const WEBSITE = require("'$(CALL_website getJSRequirePath)'");
+    const VARIABLES = JSON.parse(process.argv[1]);
+
+    var code = FS.readFileSync(PATH.join(__dirname, "../01-SourceLogicPackage/README.tpl.md"), "utf8");
+
+    FS.writeFileSync(PATH.join(__dirname, "../../README.md"), PAGES.replaceVariablesInCode(
+        WEBSITE.normalizeVariables(VARIABLES)
+    , code), "utf8");
+' "$VARIABLES"

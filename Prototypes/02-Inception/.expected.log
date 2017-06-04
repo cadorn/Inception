@@ -1,31 +1,15 @@
 Your branch is up-to-date with 'origin/gh-pages'.
-Already up-to-date.
 From file:///dl/source/github.com~cadorn~Inception/../../.git/modules/source/github.com~cadorn~Inception
-   f4880c5..9079978  master     -> source/master
-Removing Prototypes/01-SourceLogicPackage/Licenses/FPL.md
-Removing Prototypes/01-SourceLogicPackage/Headers/Default.js
+   9079978..bb5096c  master     -> source/master
 Merge made by the 'recursive' strategy.
- .../01-SourceLogicPackage/Headers/Default.js       |  4 --
- .../01-SourceLogicPackage/Headers/Default.md       |  4 ++
- .../01-SourceLogicPackage/Licenses/CC-BY-SA.json   | 14 +++++
- Prototypes/01-SourceLogicPackage/Licenses/FPL.json | 17 ++++++
- Prototypes/01-SourceLogicPackage/Licenses/FPL.md   | 13 -----
- Prototypes/01-SourceLogicPackage/README.tpl.md     | 20 +++----
- .../_#_org.bashorigin_#_s1.sh                      | 63 ++++++++++++++++++++++
- Prototypes/01-SourceLogicPackage/main.sh           | 15 +++---
- Prototypes/02-Inception/main.sh                    | 29 ++++++++++
- package.json                                       | 20 +++----
- 10 files changed, 156 insertions(+), 43 deletions(-)
- delete mode 100644 Prototypes/01-SourceLogicPackage/Headers/Default.js
- create mode 100644 Prototypes/01-SourceLogicPackage/Headers/Default.md
- create mode 100644 Prototypes/01-SourceLogicPackage/Licenses/CC-BY-SA.json
- create mode 100644 Prototypes/01-SourceLogicPackage/Licenses/FPL.json
- delete mode 100644 Prototypes/01-SourceLogicPackage/Licenses/FPL.md
- create mode 100644 Prototypes/01-SourceLogicPackage/_#_org.bashorigin_#_s1.sh
- create mode 100755 Prototypes/02-Inception/main.sh
-On branch gh-pages
-Your branch is ahead of 'origin/gh-pages' by 2 commits.
-  (use "git push" to publish your local commits)
-nothing to commit, working tree clean
+ .../01-SourceLogicPackage/Licenses/CC-BY-SA.json   |  6 +----
+ Prototypes/01-SourceLogicPackage/README.tpl.md     |  2 +-
+ Prototypes/01-SourceLogicPackage/Skin/style.css    | 11 ++++++++
+ Prototypes/02-Inception/.expected.log              | 31 ++++++++++++++++++++++
+ Prototypes/02-Inception/main.sh                    |  3 +--
+ 5 files changed, 45 insertions(+), 8 deletions(-)
+ create mode 100644 Prototypes/02-Inception/.expected.log
+[gh-pages 96a46d7] Updated pages
+ 1 file changed, 13 insertions(+), 19 deletions(-)
 To github.com:cadorn/Inception.git
-   1f1b0fc..fe0ea55  gh-pages -> gh-pages
+ * [new branch]      gh-pages -> gh-pages
