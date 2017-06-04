@@ -27,6 +27,7 @@ exports.normalizeVariables = function (variables) {
 
         "PACKAGE_CIRCLECI_NAMESPACE": "",
         "PACKAGE_NPM_PACKAGE_NAME": "",
+        "PACKAGE_NPM_PACKAGE_URL": "",
 
         "PACKAGE_HEADER": FS.readFileSync(PATH.join(__dirname, "Headers/Default.md"), "utf8"),
         "PACKAGE_YEAR_CREATED": (new Date()).getFullYear(),
