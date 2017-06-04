@@ -13,3 +13,5 @@ CALL_website publish {
         "PACKAGE_WEBSITE_URI": "cadorn.github.io/Inception/Prototypes/01-SourceLogicPackage/"
     }
 }
+
+echo "OK"
