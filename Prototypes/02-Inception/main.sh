@@ -1,7 +1,7 @@
 #!/usr/bin/env bash.origin.script
 
 depend {
-    "website": "@github.com~cadorn~Inception/Prototypes/01-SourceLogicPackage#s1",
+    "website": "@../01-SourceLogicPackage#s1",
     "pages": "@com.github/pinf-to/to.pinf.com.github.pages#s1"    
 }
 

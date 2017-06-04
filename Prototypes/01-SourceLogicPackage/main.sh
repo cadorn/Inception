@@ -1,7 +1,7 @@
 #!/usr/bin/env bash.origin.script
 
 depend {
-    "website": "@github.com~cadorn~Inception/Prototypes/01-SourceLogicPackage#s1"
+    "website": "@.#s1"
 }
 
 CALL_website publish {
