@@ -43,3 +43,6 @@ BO_run_recent_node --eval '
         WEBSITE.normalizeVariables(VARIABLES)
     , code), "utf8");
 ' "$VARIABLES"
+
+
+echo "OK"
