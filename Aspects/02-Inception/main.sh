@@ -26,11 +26,13 @@ local VARIABLES={
 }
 
 
+# TODO: Add option to track files and only publish if changed.
 CALL_website publish {
     "variables": $VARIABLES
 }
 
 
+# TODO: Add option to track files and only publish if changed.
 BO_run_recent_node --eval '
     const PATH = require("path");
     const FS = require("fs");

@@ -4,6 +4,7 @@ depend {
     "website": "@.#s1"
 }
 
+# TODO: Add option to track files and only publish if changed.
 CALL_website publish {
     "cd": "Prototypes/01-SourceLogicPackage",
     "variables": {
