@@ -1,9 +1,10 @@
 #!/usr/bin/env bash.origin.script
 
 depend {
-    "website": "@github.com~cadorn~Inception/Prototypes/01-SourceLogicPackage#s1"
+    "website": "@.#s1"
 }
 
+# TODO: Add option to track files and only publish if changed.
 CALL_website publish {
     "cd": "Prototypes/01-SourceLogicPackage",
     "variables": {
