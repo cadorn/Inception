@@ -8,6 +8,6 @@
         "lodash": "^4.17.4"
     },
     "scripts": {
-        "test": "BO_ROOT_SCRIPT_PATH=$(pwd)/node_modules/bash.origin/bash.origin bash.origin.test Prototypes"
+        "test": "BO_ROOT_SCRIPT_PATH=$(pwd)/node_modules/bash.origin/bash.origin bash.origin.test Aspects"
     }
 }
