@@ -20,6 +20,8 @@ function ensurePackage {
         BO_ensure_node
         local npmBin="$(which npm)"
 
+#        export BO_TEST_SKIP_CLEAN=1
+
         BO_LOADED= BO_IS_SOURCING= BO_sourceProfile__sourced= ${npmBin} test
 
     popd > /dev/null

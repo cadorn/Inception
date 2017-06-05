@@ -5,7 +5,7 @@ depend {
 }
 
 
-if [[ INCEPTION_MANIFEST_TRIGGERED == 1]]; then
+if [[ INCEPTION_MANIFEST_TRIGGERED != 1 ]]; then
     export INCEPTION_MANIFEST_TRIGGERED=1
 
     CALL_manifester seed {
