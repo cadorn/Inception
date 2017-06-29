@@ -2,7 +2,7 @@
 
 depend {
     "pages": "@com.github/pinf-to/to.pinf.com.github.pages#s1",
-    #"git": "@com.github/pinf-to/to.pinf.com.github.gitscm#s1",
+    "git": "@com.github/pinf-to/to.pinf.com.github.gitscm#s1",
     "server": "@com.github/bash-origin/bash.origin.express#s1"
 }
 
@@ -38,6 +38,14 @@ function EXPORTS_publishReadme {
 }
 
 function EXPORTS_publish {
+
+    # TODO: Instead of having to run this check here, ask 'CALL_pages publish' to
+    #       check it for us (also automatically check git roots of all files being referenced).
+    pushd "$__CALLER_DIRNAME__" > /dev/null
+        if ! BO_has_arg "--ignore-dirty" "$@" && ! CALL_git is_clean; then
+            BO_exit_error "Your git working directory has uncommitted changes! (pwd: $(pwd))"
+        fi
+    popd > /dev/null
 
     pushd "$__DIRNAME__" > /dev/null
 
