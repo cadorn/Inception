@@ -1,0 +1,16 @@
+{
+    "PACKAGE_LICENSE_NAME": "Mozilla Public License 2.0",
+    "PACKAGE_LICENSE_URL": "https://opensource.org/licenses/MPL-2.0",
+    "PACKAGE_LICENSE_TEXT": (markdown () >>>
+        Mozilla Public License 2.0
+
+        You are free to:
+            Commercial Use, Modify, Distribute, Sublicense, Place Warranty, Use Patent Claims
+
+        Under the following terms:
+            Include Copyright, Include License, Disclose Source, Include Original
+
+        You cannot:
+            Use Trademark, Hold Liable
+    <<<)
+}

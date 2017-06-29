@@ -31,7 +31,7 @@ exports.normalizeVariables = function (variables) {
 
         "PACKAGE_HEADER": FS.readFileSync(PATH.join(__dirname, "Headers/Default.md"), "utf8"),
         "PACKAGE_YEAR_CREATED": (new Date()).getFullYear(),
-        "PACKAGE_LICENSE_ALIAS": "FPL",
+        "PACKAGE_LICENSE_ALIAS": "MPL",
         "PACKAGE_USAGE": ""
     }, variables || {});
 
