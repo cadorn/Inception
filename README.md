@@ -1,8 +1,9 @@
 
+**Stability: Experimental. Use at your own risk!**
 
 | License | Source | &#8212;&raquo; | [Website](https://github.com/cadorn/Inception/tree/master/Prototypes/02-Inception/main.sh) | [npm](https://github.com/npm/npm) |
 | :---: | :---: | :---: | :---: | :---: |
-| [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) | [github.com/cadorn/Inception](https://github.com/cadorn/Inception) | [![CircleCI](https://circleci.com/gh/cadorn/Inception.svg?style=svg)](https://circleci.com/gh/cadorn/Inception) | [cadorn.github.io/Inception/](https://cadorn.github.io/Inception/) | [cadorn.inception](https://www.npmjs.com/package/cadorn.inception)
+| [MPL](https://opensource.org/licenses/MPL-2.0) | [github.com/cadorn/Inception](https://github.com/cadorn/Inception) | [![CircleCI](https://circleci.com/gh/cadorn/Inception.svg?style=svg)](https://circleci.com/gh/cadorn/Inception) | [cadorn.github.io/Inception/](https://cadorn.github.io/Inception/) | [cadorn.inception](https://www.npmjs.com/package/cadorn.inception)
 
 
 [Inception](https://cadorn.github.io/Inception/)
@@ -17,23 +18,19 @@ The *Logic* contained and referenced within *forms* the Background and Foundatio
 Provenance
 ==========
 
-Original Source Logic under [Attribution ShareAlike License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) by [Christoph Dorn](http://christophdorn.com) since 2017.
+Original Source Logic under [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0) by [Christoph Dorn](http://christophdorn.com) since 2017.
 
 ```
-Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+Mozilla Public License 2.0
 
 You are free to:
-    * Share — copy and redistribute the material in any medium or format
-    * Adapt — remix, transform, and build upon the material for any purpose, even commercially.
- 
- Under the following terms:
-    * Attribution — You must give appropriate credit, provide a link to the license, and indicate 
-                    if changes were made. You may do so in any reasonable manner, but not in any way 
-                    that suggests the licensor endorses you or your use.
-    * ShareAlike — If you remix, transform, or build upon the material, you must distribute your 
-                   contributions under the same license as the original.
-    * No additional restrictions — You may not apply legal terms or technological measures that 
-                                   legally restrict others from doing anything the license permits.
+    Commercial Use, Modify, Distribute, Sublicense, Place Warranty, Use Patent Claims
+
+Under the following terms:
+    Include Copyright, Include License, Disclose Source, Include Original
+
+You cannot:
+    Use Trademark, Hold Liable
 ```
 
 > Well-crafted Contributions are Welcome.

@@ -4,6 +4,7 @@ depend {
     "manifester": "@com.github/0ink/manifester#s1"    
 }
 
+# TODO: Skip this in headless mode
 
 if [[ $INCEPTION_MANIFEST_TRIGGERED != 1 ]]; then
     export INCEPTION_MANIFEST_TRIGGERED=1
