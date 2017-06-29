@@ -2,7 +2,7 @@
 
 depend {
     "pages": "@com.github/pinf-to/to.pinf.com.github.pages#s1",
-    "git": "@com.github/pinf-to/to.pinf.com.github.gitscm#s1",
+    "git": "@com.github/bash-origin/bash.origin.gitscm#s1",
     "server": "@com.github/bash-origin/bash.origin.express#s1"
 }
 
