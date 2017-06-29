@@ -12,11 +12,6 @@ function EXPORTS_getJSRequirePath {
 
 function EXPORTS_publishReadme {
 
-    echo "TODO: publish readme!!!!"
-
-    echo "target path: $1"
-    echo "args: ${*:2}"
-
     # TODO: Implement
     #CALL_git ensureFileClean "${1}"
 
