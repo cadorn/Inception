@@ -8,5 +8,5 @@ depend {
 
 function EXPORTS_website {
 
-    CALL_aspect_01 "$@"
+    PROXY_aspect_01 "$@"
 }
