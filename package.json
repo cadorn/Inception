@@ -1,15 +1,15 @@
 {
-  "name": "cadorn.inception",
-  "version": "0.0.5",
-  "dependencies": {
-    "bash.origin": "^0.1.59",
-    "bash.origin.test": "^0.1.30",
-    "bluebird": "^3.5.0",
-    "codeblock": "^0.3.2",
-    "lodash": "^4.17.4",
-    "runbash": "0.0.6"
-  },
-  "scripts": {
-    "test": "BO_ROOT_SCRIPT_PATH=$(pwd)/node_modules/bash.origin/bash.origin bash.origin.test Aspects"
-  }
+    "name": "cadorn.inception",
+    "version": "0.0.6",
+    "dependencies": {
+        "bash.origin": "^0.1.59",
+        "bash.origin.test": "^0.1.30",
+        "bluebird": "^3.5.0",
+        "codeblock": "^0.3.2",
+        "lodash": "^4.17.4",
+        "runbash": "0.0.6"
+    },
+    "scripts": {
+        "test": "BO_ROOT_SCRIPT_PATH=$(pwd)/node_modules/bash.origin/bash.origin bash.origin.test Aspects"
+    }
 }
