@@ -3,6 +3,7 @@
 depend {
     "website": {
         "@../01-SourceLogicPackage#s1": {
+            "readme": "$__DIRNAME__/../../README.md",
             "variables": {
                 "PACKAGE_NAME": "Inception",
                 "PACKAGE_GITHUB_URI": "github.com/cadorn/Inception",
@@ -28,8 +29,6 @@ depend {
 
 # TODO: Add option to track files and only publish if changed.
 #CALL_website publish $@
-
-CALL_website publishReadme "$__DIRNAME__/../../README.md" $@
 
 
 # TODO: Commit "../../README.md" if changed.
