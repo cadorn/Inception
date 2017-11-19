@@ -1,5 +1,4 @@
 
-**Stability: Experimental. Use at your own risk!**
 
 | License | Source | &#8212;&raquo; | [Website](https://github.com/cadorn/Inception/tree/master/Prototypes/02-Inception/main.sh) | [npm](https://github.com/npm/npm) |
 | :---: | :---: | :---: | :---: | :---: |
