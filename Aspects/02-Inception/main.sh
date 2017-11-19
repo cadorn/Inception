@@ -26,11 +26,15 @@ depend {
     }
 }
 
+BO_parse_args "ARGS" "$@"
 
-# TODO: Add option to track files and only publish if changed.
-#CALL_website publish $@
+if [ "$ARGS_1" == "publish" ]; then
 
+    # TODO: Add option to track files and only publish if changed.
+    CALL_website publish $@
 
-# TODO: Commit "../../README.md" if changed.
+    # TODO: Commit "../../README.md" if changed.
+
+fi
 
 echo "OK"
