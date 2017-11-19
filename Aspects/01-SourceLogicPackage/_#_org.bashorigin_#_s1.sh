@@ -93,10 +93,11 @@ function EXPORTS_run {
         "routes": {
             "/*": function /* CodeBlock */ (options) {
 
-                const Promise = require("bluebird");
-                const PATH = require("path");
-                const RUNBASH = require("runbash");
+                const LIB = require('bash.origin.workspace').forPackage(__dirname + '/../..').LIB;
 
+                const Promise = LIB.BLUEBIRD;
+                const PATH = require("path");
+                
                 if (!options.config.pagesConfig) {
                     console.error("No 'pagesConfig' in 'options.config':", options.config);
                     process.exit(1);
@@ -122,7 +123,7 @@ function EXPORTS_run {
                     if (req.headers.pragma === 'no-cache') {
                         if (!ensureBuild._building) {
 
-                            ensureBuild._building = RUNBASH([
+                            ensureBuild._building = LIB.RUNBASH([
                                 'export ___bo_module_instance_caller_dirname___="' + options.config.callerDirname + '"',
                                 # TODO: Fix the " escaping in bash.origin.modules
                                 'BO_requireModule "' + options.config.ourPath + '/_#_org.bashorigin_#_s1.sh" as "website" "' + JSON.stringify(options.config.pagesConfig).replace(/"/g, '\\\\\\"') + '"',

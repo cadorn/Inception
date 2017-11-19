@@ -1,8 +1,10 @@
 
-const PATH = require("path");
-const FS = require("fs-extra");
-const LODASH = require("lodash");
-const CODEBLOCK = require("codeblock");
+const LIB = require('bash.origin.workspace').forPackage(__dirname + '/../..').LIB;
+                
+const PATH = LIB.PATH;
+const FS = LIB.FS_EXTRA;
+const LODASH = LIB.LODASH;
+const CODEBLOCK = LIB.CODEBLOCK;
 
 
 exports.normalizeVariables = function (variables) {
