@@ -9,6 +9,10 @@ const CODEBLOCK = LIB.CODEBLOCK;
 
 exports.normalizeVariables = function (variables) {
 
+    if (!variables) {
+        throw new Error("'variables' not set!");
+    }
+    
     function prepareCode (code) {
         if (/^\//.test(code)) {
             code = FS.readFileSync(code, "utf8");
@@ -56,6 +60,13 @@ exports.normalizeVariables = function (variables) {
 
 exports.publishReadme = function (targetPath, config) {
 
+    if (!targetPath) {
+        throw new Error("'targetPath' not set!");
+    }
+    if (!config) {
+        throw new Error("'config' not set!");
+    }
+
     const PAGES = require("bash.origin").depend("to.pinf.com.github.pages#s1");
 
     var code = PAGES.replaceVariablesInCode(
@@ -83,6 +94,8 @@ exports.publishReadme = function (targetPath, config) {
         }
         return true;
     }).join("\n");
+
+    if (process.env.VERBOSE) console.log("Writing readme file to:", targetPath);
 
     FS.writeFileSync(targetPath, code, "utf8");
 }

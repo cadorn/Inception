@@ -33,8 +33,12 @@ function EXPORTS_publish {
 
                 config.variables = api.normalizeVariables(config.variables || {});
 
-                api.publishReadme(config.readme, config);
-                api.publishFiles(config.files, config);
+                if (config.readme) {
+                    api.publishReadme(config.readme, config);
+                }
+                if (config.files) {
+                    api.publishFiles(config.files, config);
+                }
 
                 config.files = config.files || {};
                 config.files["css/skin.css"] = "$__DIRNAME__/Skin/style.css";
@@ -93,7 +97,7 @@ function EXPORTS_run {
         "routes": {
             "/*": function /* CodeBlock */ (options) {
 
-                const LIB = require('bash.origin.workspace').forPackage(__dirname + '/../..').LIB;
+                const LIB = require('bash.origin.workspace').forPackage(options.config.ourPath + '/../..').LIB;
 
                 const Promise = LIB.BLUEBIRD;
                 const PATH = require("path");
@@ -122,6 +126,8 @@ function EXPORTS_run {
 
                     if (req.headers.pragma === 'no-cache') {
                         if (!ensureBuild._building) {
+
+                            console.log("Trigger build for page ...");
 
                             ensureBuild._building = LIB.RUNBASH([
                                 'export ___bo_module_instance_caller_dirname___="' + options.config.callerDirname + '"',
