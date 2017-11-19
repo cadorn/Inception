@@ -23,25 +23,25 @@ A:visited {
     border-bottom: 1px solid #ffffff;
 }
 
-H1 {
+BODY > H1 {
     border-bottom: 3px solid #1f75af;
     padding-bottom: 10px;
     padding-left: 10px;
 }
 
-H2 {
+BODY > H2 {
     border-bottom: 2px solid rgba(31,117,175,0.6);
     padding-bottom: 5px;
     padding-left: 10px;
 }
 
-H3 {
+BODY > H3 {
     border-bottom: 1px solid rgba(32,117,175,0.4);
     padding-left: 10px;
 }
 
 PRE {
-    background-color: #fcfcfc;    
+    background-color: #fcfcfc;
     border: 1px solid #dcdcdc;
     padding: 10px;
     margin-left: 10px;
@@ -61,6 +61,34 @@ BLOCKQUOTE > P {
 
 CODE {
     font: 12px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+DIV.markdown-block-result {
+    background-color: #fcfcfc;
+    border: 1px dashed #cccccc;
+    padding: 10px;
+    margin-left: 30px;
+    margin-right: 10px;
+    position: relative;
+}
+
+DIV.markdown-block-result > DIV.result-label {
+    float: left;
+    background-color: #f3f3f3;
+    color: #888888;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    border: 1px dashed #cccccc;
+    border-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 0.8rem;
+    z-index: 100;
+    margin-right: 20px;
 }
 
 TABLE {
