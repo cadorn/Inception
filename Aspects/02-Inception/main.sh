@@ -3,6 +3,7 @@
 depend {
     "website": {
         "@../01-SourceLogicPackage#s1": {
+            "readme": "$__DIRNAME__/../../README.md",
             "variables": {
                 "PACKAGE_NAME": "Inception",
                 "PACKAGE_GITHUB_URI": "github.com/cadorn/Inception",
@@ -25,13 +26,15 @@ depend {
     }
 }
 
+BO_parse_args "ARGS" "$@"
 
-# TODO: Add option to track files and only publish if changed.
-#CALL_website publish $@
+if [ "$ARGS_1" == "publish" ]; then
 
-CALL_website publishReadme "$__DIRNAME__/../../README.md" $@
+    # TODO: Add option to track files and only publish if changed.
+    CALL_website publish $@
 
+    # TODO: Commit "../../README.md" if changed.
 
-# TODO: Commit "../../README.md" if changed.
+fi
 
 echo "OK"

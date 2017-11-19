@@ -10,101 +10,161 @@ function EXPORTS_getJSRequirePath {
     echo "$__DIRNAME__/_#_org.bashorigin_#_s1.js"
 }
 
-function EXPORTS_publishReadme {
-
-    # TODO: Implement
-    #CALL_git ensureFileClean "${1}"
-
-    BO_run_recent_node --eval '
-        const PATH = require("path");
-        const FS = require("fs");
-
-        const PAGES = require("'$(CALL_pages getJSRequirePath)'");
-        const WEBSITE = require("$__DIRNAME__/_#_org.bashorigin_#_s1.js");
-
-        const sourceTemplate = process.argv[1];
-        const targetPath = process.argv[2];
-        const config = JSON.parse(process.argv[3]);
-
-        FS.writeFileSync(targetPath, PAGES.replaceVariablesInCode(
-            WEBSITE.normalizeVariables(config.variables),
-            FS.readFileSync(sourceTemplate, "utf8")
-        ), "utf8");
-
-    ' "$__DIRNAME__/README.tpl.md" "$1" "${__ARG1__}"
-
-    # TODO: Optionally auto-commit
-    #CALL_git ensureFileComitted "$__DIRNAME__/../../README.md" "Changes after running workspace."
-}
-
 function EXPORTS_publish {
 
     # TODO: Instead of having to run this check here, ask 'CALL_pages publish' to
     #       check it for us (also automatically check git roots of all files being referenced).
     pushd "$__CALLER_DIRNAME__" > /dev/null
-        if ! BO_has_arg "--ignore-dirty" "$@" && ! CALL_git is_clean; then
+        if ! CALL_git is_clean; then
             BO_exit_error "Your git working directory has uncommitted changes! (pwd: $(pwd))"
         fi
     popd > /dev/null
 
-    pushd "$__DIRNAME__" > /dev/null
+    CALL_pages publish {
+        "-<": {
+            "pwd": "$(pwd)",
+            "config": ${__ARG1__},
+            "merge()": function /* CodeBlock */ (pwd, config) {
 
-        CALL_pages publish {
-            "-<": {
-                "config": ${__ARG1__},
-                "merge()": function /* CodeBlock */ (config) {
+                const api = require("$__DIRNAME__/_#_org.bashorigin_#_s1.js");
 
-                    config.variables = require("$__DIRNAME__/_#_org.bashorigin_#_s1.js").normalizeVariables(config.variables || {});
+                config.config = config.config || {};
+                config.config.pwd = pwd;                
 
-                    return config;
+                config.variables = api.normalizeVariables(config.variables || {});
+
+                if (config.readme) {
+                    api.publishReadme(config.readme, config);
                 }
-            },
-            "css": "$__DIRNAME__/Skin/style.css",
-            "scripts": [
-                "$__DIRNAME__/Skin/jquery-v3.2.1.min.js"
-            ],
-            "anchors": {
-                "body": "$__DIRNAME__/README.tpl.md"
-            }
-        } $@
+                if (config.files) {
+                    api.publishFiles(config.files, config);
+                }
 
-    popd > /dev/null
+                config.files = config.files || {};
+                config.files["css/skin.css"] = "$__DIRNAME__/Skin/style.css";
+
+                return config;
+            }
+        },
+        "css": function /* CodeBlock */ (config) {
+
+            const PATH = require("path");
+
+//console.log("config", config);
+
+            var uri = "/base/css/skin.css";
+            if (config.cd) {
+
+#                    const urlParts = require("url").parse("http://" + config.variables.PACKAGE_WEBSITE_URI);
+
+//console.log("urlParts", urlParts.pathname);
+
+                uri = PATH.relative(PATH.join("/base", config.cd), uri);
+
+//console.log("uri 1", uri);
+
+            } else {
+                uri = uri.replace(/^\/base/, ".");
+            }
+
+//console.log("uri 2", uri);
+
+            return uri;
+        },
+        "scripts": [
+            "$__DIRNAME__/Skin/jquery-v3.2.1.min.js"
+        ],
+        "anchors": {
+            "body": "$__DIRNAME__/README.tpl.md"
+        }
+    } $@
 }
 
 function EXPORTS_run {
 
     EXPORTS_publish "$@" --dryrun
 
-    pushd "$__DIRNAME__" > /dev/null
+    export NODE_PATH="$__DIRNAME__/../../node_modules:$NODE_PATH"
 
-        CALL_server run {
-            "config": {
-                "pagesConfig": ${__ARG1__},
-                "basePath": "$(CALL_pages getTargetPath)"
-            },
-            "routes": {
-                "/*": function /* CodeBlock */ (options) {
+    CALL_server run {
+        "config": {
+            "pwd": "$(pwd)",
+            "callerDirname": "$__CALLER_DIRNAME__", 
+            "ourPath": "$__DIRNAME__",
+            "pagesConfig": ${__ARG1__},
+            "basePath": "$(CALL_pages getTargetPath)"
+        },
+        "routes": {
+            "/*": function /* CodeBlock */ (options) {
 
-                    const PATH = require("path");
+                const LIB = require('bash.origin.workspace').forPackage(options.config.ourPath + '/../..').LIB;
 
-                    const static = options.EXPRESS.static(options.config.basePath);
+                const Promise = LIB.BLUEBIRD;
+                const PATH = require("path");
+                
+                if (!options.config.pagesConfig) {
+                    console.error("No 'pagesConfig' in 'options.config':", options.config);
+                    process.exit(1);
+                }
 
-                    var baseUrl = "/";
+                if (options.config.pagesConfig.routes) {
+                    options.hookRoutes(options.config.pagesConfig.routes);
+                }
 
-                    if (options.config.pagesConfig.cd) {
-                        baseUrl = PATH.join(baseUrl, options.config.pagesConfig.cd);
+                const static = options.EXPRESS.static(options.config.basePath);
+
+                var baseUrl = "/";
+
+                if (options.config.pagesConfig.cd) {
+                    baseUrl = PATH.join(baseUrl, options.config.pagesConfig.cd);
+                }
+
+                console.log("Document root:", options.config.basePath);
+                console.log("Base URL:", "http://localhost:" + options.PORT + baseUrl);
+
+                function ensureBuild (req) {
+
+                    if (req.headers.pragma === 'no-cache') {
+                        if (!ensureBuild._building) {
+
+                            console.log("Trigger build for page ...");
+
+                            ensureBuild._building = LIB.RUNBASH([
+                                'export ___bo_module_instance_caller_dirname___="' + options.config.callerDirname + '"',
+                                # TODO: Fix the " escaping in bash.origin.modules
+                                'BO_requireModule "' + options.config.ourPath + '/_#_org.bashorigin_#_s1.sh" as "website" "' + JSON.stringify(options.config.pagesConfig).replace(/"/g, '\\\\\\"') + '"',
+                                'website publish --ignore-dirty --dynamic-changes-only --dryrun',
+                            ], {
+                                progress: true,
+                                wrappers: {
+                                    "bash.origin": true
+                                },
+                                wait: true,
+                                cwd: options.config.pwd
+                            }).then(function (result) {
+
+                                // For 3 seconds we let all subsequent requests use this latest build instead
+                                // of triggering new build.
+                                setTimeout(function () {
+                                    delete ensureBuild._building;
+                                }, 3 * 1000);
+
+                                return null;
+                            });
+                        }
+                        return ensureBuild._building;
                     }
+                    return Promise.resolve(null);
+                }
 
-                    console.log("Document root:", options.config.basePath);
-                    console.log("Base URL:", "http://localhost:" + options.PORT + baseUrl);
+                return function (req, res, next) {
 
-                    return function (req, res, next) {
+                    return ensureBuild(req).then(function () {
 
                         return static(req, res, next);
-                    };
-                }
+                    }, next);
+                };
             }
         }
-
-    popd > /dev/null
+    }
 }
