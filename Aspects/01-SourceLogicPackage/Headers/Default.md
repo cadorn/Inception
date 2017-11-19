@@ -1,4 +1,3 @@
-**Stability: Experimental. Use at your own risk!**
 
 | License | Source | &#8212;&raquo; | [Website](https://%%%PACKAGE_WEBSITE_SOURCE_URI%%%) | [npm](https://github.com/npm/npm) |
 | :---: | :---: | :---: | :---: | :---: |
