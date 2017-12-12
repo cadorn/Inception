@@ -80,9 +80,16 @@ function EXPORTS_publish {
     } $@
 }
 
-function EXPORTS_run {
+function EXPORTS_build {
 
     EXPORTS_publish "$@" --dryrun
+
+}
+
+
+function EXPORTS_run {
+
+    EXPORTS_build "$@"
 
     export NODE_PATH="$__DIRNAME__/../../node_modules:$NODE_PATH"
 

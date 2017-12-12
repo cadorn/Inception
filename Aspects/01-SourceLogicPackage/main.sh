@@ -25,6 +25,10 @@ elif [ "$ARGS_1" == "run" ]; then
 
     CALL_website run ${*:2}
 
+elif [ "$ARGS_1" == "build" ]; then
+
+    CALL_website build ${*:2}
+
 fi
 
 echo "OK"

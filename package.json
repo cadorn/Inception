@@ -2,7 +2,7 @@
     "name": "cadorn.inception",
     "version": "0.0.8",
     "dependencies": {
-        "bash.origin.workspace": "^0.2.17"
+        "bash.origin.workspace": "^0.2.71"
     },
     "scripts": {
         "test": "bash.origin.test Aspects"
