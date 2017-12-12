@@ -1,6 +1,9 @@
 {
     "name": "cadorn.inception",
     "version": "0.0.9",
+    "pm": {
+        "publish": "npm"
+    },
     "dependencies": {
         "bash.origin.workspace": "^0.2.71"
     },
