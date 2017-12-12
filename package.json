@@ -1,6 +1,6 @@
 {
     "name": "cadorn.inception",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "dependencies": {
         "bash.origin.workspace": "^0.2.71"
     },
